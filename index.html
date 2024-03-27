@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>打字机效果Demo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css" />
+<style>
+  body {
+    font-family: "LXGW WenKai Mono Screen", monospace; /* 设置字体 */
+    font-weight: normal;
+    font-size: 2rem;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: left; /* 文字从容器最左边开始 */
+    margin: 0;
+    padding: 20px;
+  }
+  #typewriter-container {
+    width: 50%; /* 容器宽度设置为屏幕宽度的一半 */
+    margin: 0 auto; /* 居中显示 */
+    padding: 20px; /* 左右留白 */
+    overflow: visible; /* 确保内容可以超出容器 */
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: flex-start; /* 子元素在主轴(水平方向)的起点对齐 */
+  }
+  #typewriter {
+    white-space: pre-wrap; /* 保留空白符，允许自动换行 */
+    /* border-right: 2px solid #000; */
+    word-wrap: break-word; /* 自动换行 */
+    margin: 0; /* 移除默认的外边距 */
+  }
+</style>
+</head>
+<body>
+<div id="typewriter-container">
+  <div id="typewriter"></div>
+</div>
+
+<script>
+    const text = '这是一句话。这是第二句话，它将会比第一句话长，以测试自动换行的功能。这是一句话。这是第二句话，它将会比第一句话长，以测试自动换行的功能。这是一句话。这是第二句话，它将会比第一句话长，以测试自动换行的功能。这是一句话。这是第二句话，它将会比第一句话长，以测试自动换行的功能。这是一句话。这是第二句话，它将会比第一句话长，以测试自动换行的功能。';
+    const typewriterElement = document.getElementById('typewriter');
+  
+    let i = 0; // 当前打字到的位置
+  
+    function type() {
+      if (i < text.length) {
+        // 为每个字符生成一个新的随机打字速度
+        const randomSpeed = Math.floor(Math.random() * (300 - 50 + 1)) + 50;
+        typewriterElement.textContent += text.charAt(i);
+        i++;
+        // 使用新生成的随机速度设置下次打字的时间
+        setTimeout(type, randomSpeed);
+      }
+    }
+  
+    // 开始打字
+    type();
+  </script>
+</body>
+</html>
