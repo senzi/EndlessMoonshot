@@ -6,30 +6,55 @@
 <title>EndlessMoonshot</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css" />
 <style>
+body {
+  font-family: "LXGW WenKai Mono Screen", monospace;
+  font-weight: normal;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: left;
+  margin: 0;
+  padding: 20px;
+}
+
+/* 默认字体大小和容器宽度 */
+body {
+  font-size: 2rem;
+}
+#typewriter-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: visible;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* 针对平板设备的样式（屏幕宽度小于等于1024px） */
+@media (max-width: 1024px) {
   body {
-    font-family: "LXGW WenKai Mono Screen", monospace; /* 设置字体 */
-    font-weight: normal;
-    font-size: 2rem;
-    background-color: #f5f5f5;
-    color: #333;
-    text-align: left; /* 文字从容器最左边开始 */
-    margin: 0;
-    padding: 20px;
+    font-size: 1.75rem; /* 调整字体大小以适应中等屏幕 */
   }
   #typewriter-container {
-    width: 50%; /* 容器宽度设置为屏幕宽度的一半 */
-    margin: 0 auto; /* 居中显示 */
-    padding: 20px; /* 左右留白 */
-    overflow: visible; /* 确保内容可以超出容器 */
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: flex-start; /* 子元素在主轴(水平方向)的起点对齐 */
+    width: 75%; /* 适当增加容器宽度 */
   }
-  #typewriter {
-    white-space: pre-wrap; /* 保留空白符，允许自动换行 */
-    /* border-right: 2px solid #000; */
-    word-wrap: break-word; /* 自动换行 */
-    margin: 0; /* 移除默认的外边距 */
+}
+
+/* 针对手机设备的样式（屏幕宽度小于等于768px） */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.5rem; /* 进一步调整字体大小以适应小屏幕 */
   }
+  #typewriter-container {
+    width: 90%; /* 进一步增加容器宽度 */
+  }
+}
+
+/* 针对更小屏幕设备的样式（屏幕宽度小于等于480px） */
+@media (max-width: 480px) {
+  body {
+    font-size: 1.25rem; /* 根据需要进一步减小字体大小 */
+  }
+}
 </style>
 </head>
 <body>
